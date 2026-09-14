@@ -1,0 +1,43 @@
+{
+  "name": "@zkcr/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript SDK: issue/verify/revoke W3C VCs and generate ZK attribute proofs for both revocation schemes",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "demo:nullifier": "node scripts/demo.js nullifier",
+    "demo:merkle": "node scripts/demo.js merkle"
+  },
+  "dependencies": {
+    "@helia/unixfs": "^4.0.2",
+    "@noble/ed25519": "^2.1.0",
+    "@noble/hashes": "^1.5.0",
+    "blockstore-core": "^5.0.2",
+    "circomlibjs": "^0.1.7",
+    "datastore-core": "^10.0.2",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "helia": "^5.2.0",
+    "snarkjs": "^0.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "~5.6.3"
+  }
+}

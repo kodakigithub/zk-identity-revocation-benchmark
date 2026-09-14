@@ -1,0 +1,19 @@
+{
+  "name": "@zkcr/benchmarks",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Benchmarking harness: gas cost, proof-generation time, and on-chain storage growth for both revocation schemes",
+  "type": "module",
+  "scripts": {
+    "bench:gas": "node gas/bench-gas.js",
+    "bench:proof-time": "node proof-time/bench-proof-time.js",
+    "bench:storage": "node storage/bench-storage.js"
+  },
+  "dependencies": {
+    "@zkcr/sdk": "*",
+    "circomlibjs": "^0.1.7",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "snarkjs": "^0.7.5"
+  }
+}

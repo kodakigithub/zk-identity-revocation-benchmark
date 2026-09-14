@@ -1,0 +1,33 @@
+{
+  "name": "zk-credential-revocation-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Research prototype: ZK selective disclosure over W3C VCs with two benchmarkable revocation schemes (nullifier registry vs sparse-Merkle non-membership)",
+  "workspaces": [
+    "circuits",
+    "contracts",
+    "sdk",
+    "apps/*",
+    "benchmarks"
+  ],
+  "scripts": {
+    "setup:circom": "mkdir -p tools/bin && curl -sL -o tools/bin/circom https://github.com/iden3/circom/releases/download/v2.2.3/circom-linux-amd64 && chmod +x tools/bin/circom && tools/bin/circom --version",
+    "build:circuits": "npm run build -w @zkcr/circuits",
+    "build:sdk": "npm run build -w @zkcr/sdk",
+    "compile:contracts": "npm run compile -w @zkcr/contracts",
+    "test:circuits": "npm run test -w @zkcr/circuits",
+    "test:contracts": "npm run test -w @zkcr/contracts",
+    "node": "npm run node -w @zkcr/contracts",
+    "deploy:local": "npm run deploy:local -w @zkcr/contracts && npm run sync:apps",
+    "deploy:sepolia": "npm run deploy:sepolia -w @zkcr/contracts",
+    "sync:apps": "node apps/sync-config.js",
+    "demo:nullifier": "npm run demo:nullifier -w @zkcr/sdk",
+    "demo:merkle": "npm run demo:merkle -w @zkcr/sdk",
+    "bench:gas": "npm run bench:gas -w @zkcr/benchmarks",
+    "bench:proof-time": "npm run bench:proof-time -w @zkcr/benchmarks",
+    "bench:storage": "npm run bench:storage -w @zkcr/benchmarks"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
